@@ -1,16 +1,42 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --bg-1: linear-gradient(
+    to bottom right,
+    rgb(238, 236, 236),
+    rgb(202, 201, 201)
+  );
+  --bg-2: grey;
+  --bg-3: #29314d;
+  --bg-4: #101527;
+  --bg-5: #010203;
+  --blue-1: #5f70c3;
+  --blue-2: #394892;
+  --blue-3: #1c275f;
+
+  font-family: system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(
+      #1d1d1d 25%,
+      #1a1a1a 25%,
+      #1a1a1a 50%,
+      transparent 50%,
+      transparent 75%,
+      #242424 75%,
+      #242424
+    );
+  background-color: #131313;
+  background-size: 20px 20px;
+}
+* {
+  box-sizing: border-box;
 }
 
 a {
@@ -31,34 +57,168 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+* {
+  box-sizing: border-box;
+  transition: all 0.2s;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+*:disabled {
+  opacity: 0.8;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+button {
+  border-radius: 0.5rem;
+  outline: 1px solid transparent;
+  padding: 0.4em 2em;
+  font-size: 1em;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: inset 0 5px 0 #ffffff32, inset 0 0 20px #00043196,
+    -1px -1px 2px rgba(128, 128, 128, 0.77), 1px 1px 2px #ffffff86;
+}
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: grey;
+}
+button.btn-primary {
+  background: var(--blue-1);
+  &:hover {
+    background: var(--blue-2);
   }
-  a:hover {
-    color: #747bff;
+  &:active {
+    background: var(--blue-3);
   }
-  button {
-    background-color: #f9f9f9;
+}
+button.btn-secondary {
+  background: var(--bg-3);
+  &:hover {
+    background: var(--bg-4);
+  }
+  &:active {
+    background: var(--bg-5);
+  }
+}
+
+textarea {
+  font-size: 1em;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 0;
+  padding: 0.5rem;
+  font-family: inherit;
+  box-shadow: inset 0 1px 6px #00000082;
+  background: rgb(240, 240, 240);
+  color: black;
+  &:focus {
+    outline: 2px solid var(--blue-1);
+  }
+}
+
+.message {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: inset 0 7px 0 #ffffff74, inset 0 0 15px #0000006f;
+  min-width: 5rem;
+  max-width: 80vw;
+  width: fit-content;
+  &.incoming {
+    background: rgb(233, 231, 231);
+    color: black;
+  }
+  &.outgoing {
+    background: var(--blue-2);
+  }
+}
+
+p {
+  margin-top: 0.15rem;
+  margin-bottom: 0.5rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+pre {
+  max-width: 100%;
+  word-wrap: break-word;
+  display: block;
+  white-space: normal;
+  background: white;
+  border-radius: 0.3rem;
+  padding: 0.25rem 0.5rem;
+  box-shadow: inset 0 0 0 1px lightgray;
+}
+
+.dot-flashing {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #aaaaaa;
+  color: #aaaaaa;
+  animation: dot-flashing 1s infinite linear alternate;
+  animation-delay: 0.5s;
+}
+.dot-flashing::before,
+.dot-flashing::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+.dot-flashing::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #aaaaaa;
+  color: #aaaaaa;
+  animation: dot-flashing 1s infinite alternate;
+  animation-delay: 0s;
+}
+.dot-flashing::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #aaaaaa;
+  color: #aaaaaa;
+  animation: dot-flashing 1s infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes dot-flashing {
+  0% {
+    background-color: #cdcdcd;
+  }
+  50%,
+  100% {
+    background-color: #aaaaaa;
+  }
+}
+
+hr {
+  opacity: 0.5;
+  margin-top: 0;
+}
+
+.copycode-btn {
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+  }
+  &:active {
+    opacity: 0.2;
   }
 }
