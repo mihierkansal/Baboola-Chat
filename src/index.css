@@ -229,3 +229,8 @@ hr {
     opacity: 0.2;
   }
 }
+
+ul,
+ol {
+  padding-left: 0.9rem;
+}
