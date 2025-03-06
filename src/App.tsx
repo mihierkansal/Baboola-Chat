@@ -67,9 +67,9 @@ const renderMarkdown = async (markdown: string) => {
 };
 
 function App() {
+  console.log(import.meta.env.VITE_API_URL);
   const openai = new OpenAI({
-    apiKey:
-      "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",
+    apiKey: import.meta.env.VITE_APIKEY,
     dangerouslyAllowBrowser: true,
   });
 
