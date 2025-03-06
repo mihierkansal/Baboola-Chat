@@ -49,18 +49,21 @@ const renderMarkdown = async (markdown: string) => {
     const codeContent = element.innerText;
     const elId = createUniqueId();
 
+    let div = document.createElement("div");
+    div.innerText = codeContent;
+
     window.copier[`copy${elId}`] = () => {
       navigator.clipboard.writeText(codeContent);
       console.log(codeContent);
     };
-    element.innerHTML =
-      `
+    element.innerHTML = `
       <div style="display:flex;justify-content:space-between;">
       <div>${element.className}</div>
       <div class="copycode-btn" onclick="window.copier['copy${elId}']()">Copy</div>
       </div>
     <hr/>
-    ` + element.innerHTML;
+    <code>${div.innerHTML}</code>
+    `;
   });
 
   return container.innerHTML;
