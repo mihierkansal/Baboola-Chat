@@ -113,9 +113,12 @@ function App() {
   }
 
   function submit() {
+    const div = document.createElement("div");
+    div.innerText = message();
+
     setMessages((v) => {
       v.push({
-        html: message(),
+        html: div.innerHTML,
         fromAI: false,
       });
       return [...v];
