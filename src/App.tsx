@@ -125,19 +125,29 @@ function App() {
     });
 
     setLoading(true);
-    request().then(async (response) => {
-      const r = response
-        ? await renderMarkdown(response)
-        : "Sorry, I can't answer your question.";
-      setMessages((v) => {
-        v.push({
-          html: r,
-          fromAI: true,
+    request()
+      .then(async (response) => {
+        const r = response
+          ? await renderMarkdown(response)
+          : "Sorry, I can't answer your question.";
+        setMessages((v) => {
+          v.push({
+            html: r,
+            fromAI: true,
+          });
+          return [...v];
         });
-        return [...v];
+        setLoading(false);
+      })
+      .catch(() => {
+        setMessages([
+          {
+            fromAI: true,
+            html: "I couldn't answer your question. I've reset the chat.",
+          },
+        ]);
+        setLoading(false);
       });
-      setLoading(false);
-    });
     setMessage("");
   }
 
