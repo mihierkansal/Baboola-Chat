@@ -71,6 +71,7 @@ button {
   outline: 1px solid transparent;
   padding: 0.4em 2em;
   font-size: 1em;
+  color: white;
   border: 0;
   font-family: inherit;
   cursor: pointer;
