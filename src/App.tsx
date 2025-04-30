@@ -199,8 +199,8 @@ function App() {
           width: "100vw",
           padding: "0.5rem",
           background: "var(--bg-1)",
-          "border-top-right-radius": "0.5rem",
-          "border-top-left-radius": "0.5rem",
+          "border-top-right-radius": "1.5rem",
+          "border-top-left-radius": "1.5rem",
           "box-shadow": "0 0 5px #00000044",
         }}
       >
@@ -238,7 +238,7 @@ function App() {
               setMessages([]);
             }}
           >
-            New chat
+            <span>New chat</span>
           </button>
           <button
             class="btn-primary"
@@ -250,7 +250,7 @@ function App() {
             }}
             disabled={loading()}
           >
-            Submit
+            <span>Submit</span>
           </button>
         </div>
       </div>

@@ -8,9 +8,9 @@
   --bg-3: #29314d;
   --bg-4: #101527;
   --bg-5: #010203;
-  --blue-1: #5f70c3;
-  --blue-2: #394892;
-  --blue-3: #1c275f;
+  --blue-1: #4488aa;
+  --blue-2: #38718e;
+  --blue-3: #2d5366;
 
   font-family: system-ui, sans-serif;
   line-height: 1.5;
@@ -59,7 +59,7 @@ h1 {
 
 * {
   box-sizing: border-box;
-  transition: all 0.2s;
+  transition: all 0.1s;
 }
 *:disabled {
   opacity: 0.8;
@@ -67,7 +67,7 @@ h1 {
 }
 
 button {
-  border-radius: 0.5rem;
+  border-radius: 9rem;
   outline: 1px solid transparent;
   padding: 0.4em 2em;
   font-size: 1em;
@@ -75,13 +75,19 @@ button {
   border: 0;
   font-family: inherit;
   cursor: pointer;
-  box-shadow: inset 0 5px 0 #ffffff32, inset 0 0 20px #00043196,
-    -1px -1px 2px rgba(128, 128, 128, 0.77), 1px 1px 2px #ffffff86;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 -2px 2px #0003, 0 3px 2px #fff, inset 0 0 10px #0003;
+  & span {
+    display: flex;
+  }
   &:active {
-    box-shadow: inset 0 3px 0 #ffffff32, inset 0 0 20px #00043196,
-      -1px -1px 2px rgba(128, 128, 128, 0.77), 1px 1px 2px #ffffff86;
-    padding-bottom: 0.3em;
-    padding-top: 0.1em;
+    box-shadow: 0 -2px 2px #0003, 0 3px 2px #fff, inset 0 0 15px #0008;
+    & span {
+      scale: 0.9;
+    }
   }
 }
 ::-webkit-scrollbar {
@@ -94,27 +100,20 @@ button {
   background: grey;
 }
 button.btn-primary {
-  background: var(--blue-1);
-  &:hover {
-    background: var(--blue-2);
-  }
-  &:active {
-    background: var(--blue-3);
-  }
+  background: linear-gradient(to bottom, var(--blue-1), var(--blue-2));
 }
 button.btn-secondary {
-  background: var(--bg-3);
-  &:hover {
-    background: var(--bg-4);
-  }
-  &:active {
-    background: var(--bg-5);
+  background: linear-gradient(to bottom, white, lightgray);
+  color: black;
+
+  &:active > span {
+    color: var(--blue-1);
   }
 }
 
 textarea {
   font-size: 1em;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   outline: none;
   border: 0;
   padding: 0.5rem;
@@ -131,7 +130,7 @@ textarea {
   margin-bottom: 1.5rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  box-shadow: inset 0 7px 0 #ffffff74, inset 0 0 15px #0000006f;
+  box-shadow: inset 0 7px 0 #ffffff34, inset 0 0 15px #0000006f;
   min-width: 5rem;
   max-width: 80vw;
   width: fit-content;
