@@ -10,6 +10,8 @@ import katex from "katex";
 import "katex/dist/katex.min.css";
 import { marked } from "marked";
 
+import "baboolastyles/public/plastic.css";
+
 declare var window: typeof Window & {
   copier: Record<string, Function>;
 };
@@ -230,7 +232,6 @@ function App() {
           }}
         >
           <button
-            class="btn-secondary"
             style={{
               "flex-grow": 1,
             }}
@@ -241,7 +242,6 @@ function App() {
             <span>New chat</span>
           </button>
           <button
-            class="btn-primary"
             style={{
               "flex-grow": 1,
             }}
