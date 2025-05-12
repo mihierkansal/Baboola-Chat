@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "baboolastyles": "^0.0.3",
+    "baboolastyles": "^0.1.0",
     "katex": "^0.16.22",
     "markdown-it": "^14.1.0",
     "markdown-it-katex": "^2.0.3",
